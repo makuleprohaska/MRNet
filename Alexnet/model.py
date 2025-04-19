@@ -18,7 +18,7 @@ class MRNet3(nn.Module):
         self.dropout_view3 = nn.Dropout(p=0.4)
 
         self.classifier1 = nn.Sequential(
-            nn.Linear(1408 * 3, 256),
+            nn.Linear(256 * 3, 256),
             nn.BatchNorm1d(256),
             nn.Dropout(p=0.5),  # Add dropout here
             nn.ReLU()
@@ -28,7 +28,7 @@ class MRNet3(nn.Module):
     def forward(self, x):
         # x: list of [axial, coronal, sagittal] for each sample in batch
         batch_size = len(x)  # Number of samples (e.g., 4)
-        print(f"batch_size: {batch_size}")
+        #print(f"batch_size: {batch_size}")
         batch_features = []
         
         for sample_views in x:  # Process each sample

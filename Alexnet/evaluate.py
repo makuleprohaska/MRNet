@@ -10,6 +10,7 @@ from loader import load_data3
 from model import MRNet3
 
 
+
 def get_device(use_gpu, use_mps):
     
     if use_gpu and torch.cuda.is_available():
